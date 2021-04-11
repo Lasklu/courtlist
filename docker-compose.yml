@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - data:/var/lib/postgresql/data
+    env_file: ./.env.local #Here we are using the already existing .env.local file
+    ports:
+      - "54322:5432"
+    environment:
+      POSTGRES_USER: courtlist
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: courtlist
+
+volumes:
+  data:
